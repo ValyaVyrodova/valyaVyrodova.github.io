@@ -83,7 +83,7 @@ const menu = [
     category: "dinner",
     price: 39.99,
     img: "./images/item-10.jpeg",
-    desc: `the testier steak in you life`,
+    desc: `the testier steak in you life. Live-edge lyft af, edison bulb yuccie crucifix`,
   },
 ];
 
