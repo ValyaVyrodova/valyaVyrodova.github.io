@@ -1,67 +1,216 @@
 <html>
 
 <head>
-  <title>Valya Vyrodova</title>
-  <link rel="stylesheet" href="styles.css">
+    <title>Frontend programmer</title>
+
+    <!-- add icon link -->
+    <link rel="icon" href="./img/icons/icon.png" type="image/x-icon">
+
+    <!-- CSS only -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="main-style.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 </head>
 
 <body>
-  <!-- title -->
-  <div class="title">
-    <h2>valya's pet projects</h2>
-    <div class="underline"></div>
-    <div class="demo-hint">Click on the carousel item to see a demo</div>
-  </div>
-  <div class="slider-container">
-    <div class="slide slide-item" onclick="window.open('01-color-flipper/index.html')">
-      <h2>color-flipper</h2>
-      <img src="./img/01.png" class="slide-img" alt="" />
-    </div>
-    <div class="slide slide-item" onclick="window.open('02-counter/index.html')">
-      <h2>counter</h2>
-      <img src="./img/02.png" class="slide-img" alt="" />
-    </div>
-    <div class="slide slide-item" onclick="window.open('03-reviews/index.html')">
-      <h2>reviews</h2>
-      <img src="./img/03.png" class="slide-img" alt=""  />
-    </div>
-    <div class="slide slide-item" onclick="window.open('04-navbar/index.html')">
-      <h2>navbar</h2>
-      <img src="./img/04.png" class="slide-img" alt="" />
-    </div>
-    <div class="slide slide-item" onclick="window.open('05-sidebar/index.html')">
-      <h2>sidebar</h2>
-      <img src="./img/05.png" class="slide-img" alt="" />
-    </div>
-    <div class="slide slide-item" onclick="window.open('06-modal/index.html')">
-      <h2>modal</h2>
-      <img src="./img/06.png" class="slide-img" alt=""  />
-    </div>
-    <div class="slide slide-item" onclick="window.open('07-questions/index.html')">
-      <h2>questions</h2>
-      <img src="./img/07.png" class="slide-img" alt=""  />
-    </div>
-    <div class="slide slide-item" onclick="window.open('08-menu/index.html')">
-      <h2>menu</h2>
-      <img src="./img/08.png" class="slide-img" alt="" />
-    </div>
-    <div class="slide slide-item" onclick="window.open('09-video/index.html')">
-      <h2>video</h2>
-      <img src="./img/09.png" class="slide-img" alt="" />
-    </div>
-  </div>
+    <div class="container">
+        <div class="about-me__container">
+            <div class="menu__container">
+                <div class="menu__logo">
+                    <img src="./img/logo.png" alt="logo" />
+                </div>
+                <div class="menu__links">
+                    <!-- links -->
+                    <ul>
+                        <li>
+                            <a href="index.html">About me</a>
+                        </li>
+                        <li>
+                            <a href="projects.html">My demo-projects</a>
+                        </li>
+                        <li>
+                            <a href="contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu__social">
+                    <!-- social media -->
+                    <ul>
+                        <li>
+                            <a href="https://www.instagram.com/vyrodova.v/">
+                                <img class="icons" src="./img/icons/instagram.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://t.me/ValyaVyrodova">
+                                <img class="icons" src="./img/icons/telegram.png">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/valentyna-vyrodova-20b300222/">
+                                <img class="icons" src="./img/icons/linkedin.png">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-  <div class="btn-container">
-    <button type="button" class="prevBtn">
+        <div class="main">
+            <h1>Main pet projects</h1>
+            <h5>Click on the card to see a demo</h5>
+            <div>
+                <div class="row row-cols-1 row-cols-md-3 g-4">
+                    <div class="col">
+                        <div class="card h-100" onclick="window.open('01-color-flipper/index.html')">
+                            <img src="./img/01.png" class="card-img-top" alt="color-flipper">
+                            <div class="card-body">
+                                <h5 class="card-title">Color flipper</h5>
+                                <p class="card-text">
+                                    Click the button to randomly change the background color. There are two different modes in the upper right corner. In the Simple mode, the color is chosen randomly from 4 offered. In Hex mode, a random color is created from all existing ones.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" onclick="window.open('02-counter/index.html')">
+                            <img src="./img/02.png" class="card-img-top" alt="counter">
+                            <div class="card-body">
+                                <h5 class="card-title">Counter</h5>
+                                <p class="card-text">Counter works in two modes: increase and decrease. Also you can reset it in any time.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" onclick="window.open('03-reviews/index.html')">
+                            <img src="./img/03.png" class="card-img-top" alt="reviews">
+                            <div class="card-body">
+                                <h5 class="card-title">Reviews</h5>
+                                <p class="card-text">Here you can view short employee reviews by scrolling the carousel left or right, or choose a random employee.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" onclick="window.open('04-navbar/index.html')">
+                            <img src="./img/04.png" class="card-img-top" alt="navbar">
+                            <div class="card-body">
+                                <h5 class="card-title">Navbar</h5>
+                                <p class="card-text">There you can see an example of navbar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" onclick="window.open('05-sidebar/index.html')">
+                            <img src="./img/05.png" class="card-img-top" alt="sidebar">
+                            <div class="card-body">
+                                <h5 class="card-title">Sidebar</h5>
+                                <p class="card-text">There you can see an example of sidebar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" onclick="window.open('06-modal/index.html')">
+                            <img src="./img/06.png" class="card-img-top" alt="modal-content">
+                            <div class="card-body">
+                                <h5 class="card-title">Modal project</h5>
+                                <p class="card-text">Click on the button to see the modal content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" onclick="window.open('07-questions/index.html')">
+                            <img src="./img/07.png" class="card-img-top" alt="questions">
+                            <div class="card-body">
+                                <h5 class="card-title">FAQ</h5>
+                                <p class="card-text">Click on the cross to see the hidden answer to a common question. Click on the minus sign to hide the answer backwards.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" onclick="window.open('08-menu/index.html')">
+                            <img src="./img/08.png" class="card-img-top" alt="menu">
+                            <div class="card-body">
+                                <h5 class="card-title">Menu</h5>
+                                <p class="card-text">Check out the cafe menu. For convenience, apply filters.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" onclick="window.open('09-video/index.html')">
+                            <img src="./img/09.png" class="card-img-top" alt="video">
+                            <div class="card-body">
+                                <h5 class="card-title">Video project</h5>
+                                <p class="card-text">You can pause or resume the video at any time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="CV">CV</div>
+        <div class="footer">There will be footer </div>
+    </div>
+
+
+
+    <!-- title
+    <div class="title">
+        <h2>valya's pet projects</h2>
+        <div class="underline"></div>
+        <div class="demo-hint">Click on the carousel item to see a demo</div>
+    </div>
+    <div class="slider-container">
+        <div class="slide slide-item" onclick="window.open('01-color-flipper/index.html')">
+            <h2>color-flipper</h2>
+            <img src="./img/01.png" class="slide-img" alt="" />
+        </div>
+        <div class="slide slide-item" onclick="window.open('02-counter/index.html')">
+            <h2>counter</h2>
+            <img src="./img/02.png" class="slide-img" alt="" />
+        </div>
+        <div class="slide slide-item" onclick="window.open('03-reviews/index.html')">
+            <h2>reviews</h2>
+            <img src="./img/03.png" class="slide-img" alt="" />
+        </div>
+        <div class="slide slide-item" onclick="window.open('04-navbar/index.html')">
+            <h2>navbar</h2>
+            <img src="./img/04.png" class="slide-img" alt="" />
+        </div>
+        <div class="slide slide-item" onclick="window.open('05-sidebar/index.html')">
+            <h2>sidebar</h2>
+            <img src="./img/05.png" class="slide-img" alt="" />
+        </div>
+        <div class="slide slide-item" onclick="window.open('06-modal/index.html')">
+            <h2>modal</h2>
+            <img src="./img/06.png" class="slide-img" alt="" />
+        </div>
+        <div class="slide slide-item" onclick="window.open('07-questions/index.html')">
+            <h2>questions</h2>
+            <img src="./img/07.png" class="slide-img" alt="" />
+        </div>
+        <div class="slide slide-item" onclick="window.open('08-menu/index.html')">
+            <h2>menu</h2>
+            <img src="./img/08.png" class="slide-img" alt="" />
+        </div>
+        <div class="slide slide-item" onclick="window.open('09-video/index.html')">
+            <h2>video</h2>
+            <img src="./img/09.png" class="slide-img" alt="" />
+        </div>
+    </div>
+
+    <div class="btn-container">
+        <button type="button" class="prevBtn">
       prev
     </button>
-    <button type="button" class="nextBtn">
+        <button type="button" class="nextBtn">
       next
     </button>
-  </div>
+    </div> -->
 
-  <!-- javascript -->
-  <script src="app.js"></script>
+    <!-- javascript -->
+    <script src="app.js"></script>
 </body>
 
 </html>

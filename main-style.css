@@ -1,0 +1,182 @@
+/*
+=============== 
+Fonts
+===============
+*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+/*
+=============== 
+Variables
+===============
+*/
+
+:root {
+    /* dark shades of primary color*/
+    --clr-background-1: #738a99;
+    --clr-background-2: #b0d4ec;
+    --clr-second: #fae0bb;
+    --clr-white: rgb(255, 255, 255);
+    --clr-black: #000000;
+    --ff-primary: "Playfair Display", sans-serif;
+    --ff-secondary: "Montserrat", sans-serif;
+    --transition: all 0.3s linear;
+    --spacing: 0.25rem;
+    --radius: 0.5rem;
+    --max-width: 1170px;
+    --fixed-width: 620px;
+}
+/*
+=============== 
+Global Styles
+===============
+*/
+
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-white);
+}
+
+a:link {
+    color: var(--clr-second);
+}
+
+body {
+    font-family: var(--ff-secondary);
+    background: var(--clr-background-1);
+    color: var(--clr-white);
+    line-height: 1.5;
+    font-size: 0.875rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+    font-family: var(--ff-primary);
+}
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+h2 {
+    font-size: 2rem;
+}
+h3 {
+    font-size: 1.25rem;
+}
+h4 {
+    font-size: 0.875rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu__container {
+    display: flex;
+    flex-direction: row;
+    margin: 8px 60px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu__links > ul {
+    display: flex;
+    flex-direction: row;
+    color: var(--clr-black);
+    font-style: var(--ff-secondary);
+    font-weight: 600;
+}
+
+.menu__links > ul > li {
+    margin-right: 10px;
+}
+
+.menu__social > ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.icons {
+    width: 24px;
+    margin-right: 10px;
+}
+
+.main > h5 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 670px) {
+    .menu__container {
+        display: flex;
+        flex-direction: column;
+        margin: 8px 8px;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 670px) {
+    .menu__container {
+        display: flex;
+        flex-direction: row;
+        margin: 8px 8px;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+@media screen and (min-width: 768px) {
+    .menu__container {
+        margin: 8px 8px;
+    }
+}
+@media screen and (min-width: 992px) {
+    .menu__container {
+        margin: 8px 60px;
+    }
+
+    .about-me__container {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .about-me__container::before {
+        content: "";
+        display: inline-block;
+        width: 992px;
+        height: 992px;
+        border-radius: 50%;
+        position: fixed;
+        top: -482px;
+        left: -369px;
+        z-index: -1;
+        background: -webkit-linear-gradient(180deg, rgb(176, 212, 236), rgb(115, 138, 153));
+        background: -moz-linear-gradient(180deg, rgb(176, 212, 236), rgb(115, 138, 153));
+        background: linear-gradient(180deg, rgb(176, 212, 236), rgb(115, 138, 153));
+    }
+}
