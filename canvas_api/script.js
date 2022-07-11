@@ -107,9 +107,13 @@ function update() {
     circle.y += circle.dy;
 
     //Detect side walls
-    if(circle.x + circle.size > canvas.width) {
-        console.log('HIT')
+    if(circle.x + circle.size > canvas.width || circle.x - circle.size < 0) {
         circle.dx *= -1;
+    }
+
+    //Detect top and bottom walls
+    if(circle.y + circle.size > canvas.height || circle.y - circle.size < 0) {
+        circle.dy *= -1;
     }
 
     requestAnimationFrame(update);
