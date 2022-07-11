@@ -130,6 +130,10 @@ h4 {
     margin-bottom: 30px;
 }
 
+.card {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 670px) {
     .menu__container {
         display: flex;
