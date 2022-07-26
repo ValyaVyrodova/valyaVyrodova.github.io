@@ -1,9 +1,9 @@
 class Ball {
-    constructor(gameWidth, gameHeight) {
+    constructor(game) {
         this.image = document.getElementById('img_ball');
 
-        this.gameWidth = gameWidth;
-        this.gameHeight = gameHeight;
+        this.gameWidth = game.gameWidth;
+        this.gameHeight = game.gameHeight;
 
         this.speed = {x: 4, y:4};
         this.position = {x: 10, y: 10};
