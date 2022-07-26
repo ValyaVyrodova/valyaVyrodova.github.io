@@ -7,26 +7,25 @@ const GAME_HEIGHT = 600;
 ctx.clearRect(0, 0, 800, 600);
 
 let paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
+let ball = new Ball(GAME_WIDTH, GAME_HEIGHT);
 
 new InputHandler(paddle);
 
 let lastTime = 0;
 
-// images
-
-let imgBall = document.getElementById('img_ball')
-
 function gameLoop(timestamp) {
     let deltaTime = timestamp - lastTime;
     lastTime = timestamp
 
-    ctx.clearRect(0, 0, 800, 600);
+    ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+
     paddle.update(deltaTime);
     paddle.draw(ctx);
 
-    ctx.drawImage(imgBall, 10, 10, 40, 40);
+    ball.update(deltaTime)
+    ball.draw(ctx);
 
     requestAnimationFrame(gameLoop);
 }
 
-gameLoop();
+requestAnimationFrame(gameLoop);
