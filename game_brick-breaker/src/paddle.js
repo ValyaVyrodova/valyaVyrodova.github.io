@@ -24,6 +24,10 @@ class Paddle {
         this.speed = this.maxSpeed;
     }
 
+    stop() {
+        this.speed = 0;
+    }
+
     draw(ctx) {
         ctx.fillStyle = 'rgb(133, 2, 148)';
         ctx.fillRect(this.position.x, this.position.y, this.width, this.height);
