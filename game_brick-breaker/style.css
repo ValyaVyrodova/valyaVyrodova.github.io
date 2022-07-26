@@ -1,0 +1,22 @@
+*,
+::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(236, 111, 250);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(236, 111, 250);
+}
+
+#gameScreen {
+    margin: auto;
+    border: 1px solid rgb(133, 2, 148);
+    ;
+    background-color: rgb(255, 216, 251);
+    ;
+}

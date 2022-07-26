@@ -1,7 +1,12 @@
+document.addEventListener('keydown', keyDown);
+document.addEventListener('keyup', keyUp);
+
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
 
 // Create player, that move cursor to the left and right 
+// Create circle, that move randomly
+// Create wall of cells for game
 
 const player = {
     w: 80,
@@ -14,12 +19,125 @@ const player = {
 }
 
 const circle = {
-    x: 200,
-    y: 200,
+    x: 150,
+    y: 400,
     size: 20,
     dx: 5,
     dy: 4
 }
+
+const cell = {
+    x: 20,
+    y: 20,
+    w: 150,
+    h: 100,
+    dx: 0,
+    dy: 0
+}
+
+
+
+function drawCell(el) {
+    ctx.fillStyle = 'red';
+    ctx.fillRect(el.x, el.y, el.w, el.h);
+
+}
+
+
+
+function drawWall() {
+
+    let wallCell = {
+        x: cell.x,
+        y: cell.y,
+        w: cell.w,
+        h: cell.h
+    }
+
+    let circleNumX = parseInt(canvas.width / (wallCell.w + wallCell.x)) // 600 / (150+20) = 3
+    let circleNumY = parseInt(canvas.height / 2 / (wallCell.h + wallCell.y)) // 600/2/(100+20) = 2
+
+    for (let j = 0; j < circleNumX; j++) {
+        for (let i = 0; i < circleNumY; i++) {
+            // debugger
+            drawCell(wallCell)
+            // wall.push(wallCell)
+            strikeCell(wallCell)
+
+            wallCell.y = wallCell.y + cell.w + cell.y
+        }
+
+        wallCell.x = wallCell.x + cell.w + cell.x
+        wallCell.y = cell.y
+    }
+
+}
+
+
+
+function strikeCell(wallCell) {
+    //    Detect cells
+    let circleCoordinates = {
+        x: circle.x,
+        y: circle.y
+    }
+
+    let cellCoordinateA = {
+        x: wallCell.x,
+        y: wallCell.y + wallCell.h
+    }
+
+    let cellCoordinateB = {
+        x: wallCell.x + wallCell.w,
+        y: wallCell.y + wallCell.h
+    }
+
+    let cellCoordinateC = {
+        x: wallCell.x + wallCell.w,
+        y: wallCell.y
+    }
+
+    let cellCoordinateD = {
+        x: wallCell.x,
+        y: wallCell.y
+    }
+
+    //downside
+    if (circleCoordinates.x >= cellCoordinateA.x &&
+        circleCoordinates.x <= cellCoordinateB.x &&
+        circleCoordinates.y - circle.size <= cellCoordinateA.y) {
+        circle.dy *= -1;
+        console.log('strike')
+        
+    }
+
+    //upside
+    if (circleCoordinates.x >= cellCoordinateD.x &&
+        circleCoordinates.x <= cellCoordinateC.x &&
+        circleCoordinates.y + circle.size >= cellCoordinateD.y) {
+        circle.dy *= -1;
+    }
+
+     //left side
+     if (circleCoordinates.x + circle.size <= cellCoordinateD.x &&
+        circleCoordinates.y >= cellCoordinateD.x &&
+        circleCoordinates.y <= cellCoordinateA.y) {
+        circle.dx *= -1;
+    }
+
+     //left right
+     if (circleCoordinates.x - circle.size >= cellCoordinateC.x &&
+        circleCoordinates.y >= cellCoordinateC.x &&
+        circleCoordinates.y <= cellCoordinateB.y) {
+        circle.dx *= -1;
+    }
+
+}
+
+function detectWall() {
+    drawWall()
+}
+
 
 function drawPlayer() {
     ctx.fillStyle = 'blue';
@@ -92,33 +210,20 @@ function detectCircleWalls() {
     if (circleCoordinates.x >= playerCoordinatesA.x &&
         circleCoordinates.x <= playerCoordinatesB.x &&
         circleCoordinates.y >= playerCoordinatesA.y) {
-        console.log('inter');
         circle.dy *= -1;
     }
 }
 
+
 function moveRight() {
     player.dx = player.speed
+    console.log('right')
 }
 
 function moveLeft() {
     player.dx = -player.speed
+    console.log('left')
 }
-
-
-
-function update() {
-    clear();
-    drawPlayer();
-    drawCircle();
-
-    newPos()
-    moveCircle()
-
-    requestAnimationFrame(update);
-}
-
-update()
 
 function keyDown(e) {
     if (e.key === 'ArrowRight' || e.key === 'Right') {
@@ -138,5 +243,17 @@ function keyUp(e) {
     }
 }
 
-document.addEventListener('keydown', keyDown);
-document.addEventListener('keyup', keyUp);
+function update() {
+    clear();
+    drawPlayer();
+    drawCircle();
+    detectWall()
+
+
+    newPos()
+    moveCircle()
+
+    requestAnimationFrame(update);
+}
+
+update()
