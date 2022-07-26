@@ -16,7 +16,9 @@
 #gameScreen {
     margin: auto;
     border: 1px solid rgb(133, 2, 148);
-    ;
     background-color: rgb(255, 216, 251);
-    ;
+}
+
+#img_ball {
+    display: none;
 }
