@@ -7,9 +7,9 @@ class Game {
     start() {
         this.ball = new Ball(this);
         this.paddle = new Paddle(this);
-        
+
         let bricks = buildLevel(this, level1);
-        
+
 
         this.gameObjects = [this.ball, this.paddle, ...bricks]
 
@@ -17,7 +17,9 @@ class Game {
     }
 
     update(deltaTime) {
-        this.gameObjects.forEach(object => object.update(deltaTime))
+        this.gameObjects.forEach(object => object.update(deltaTime));
+
+        this.gameObjects = this.gameObjects.filter(object => !object.markedForDeletion);
     }
 
     draw(ctx) {

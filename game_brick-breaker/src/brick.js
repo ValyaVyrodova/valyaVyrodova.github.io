@@ -5,14 +5,18 @@ class Brick {
         this.game = game;
 
         this.position = position;
-        this.width = 72;
-        this.height = 32;
+        this.width = 81;
+        this.height = 40;
 
-
+        this.markedForDeletion = false;
     }
 
     update() {
+        if(detectCollision(this.game.ball, this)) {
+            this.game.ball.speed.y = -this.game.ball.speed.y;
 
+            this.markedForDeletion = true;
+        }
     }
 
     draw(ctx) {
