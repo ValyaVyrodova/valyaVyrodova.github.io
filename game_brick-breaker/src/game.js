@@ -18,6 +18,8 @@ class Game {
     }
 
     start() {
+        if(this.gameState !== GAMESTATE.MENU) return;
+
         let bricks = buildLevel(this, level1);
         this.gameObjects = [this.ball, this.paddle, ...bricks];
 
