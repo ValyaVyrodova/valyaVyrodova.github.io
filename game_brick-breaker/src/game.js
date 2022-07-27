@@ -7,8 +7,14 @@ class Game {
     start() {
         this.ball = new Ball(this);
         this.paddle = new Paddle(this);
+        
+        let bricks = [];
+        for(let i = 0; i < 10; i++) {
+            bricks.push(new Brick(this, {x: i * 81, y:30}));
+        }
+        
 
-        this.gameObjects = [this.ball, this.paddle]
+        this.gameObjects = [this.ball, this.paddle, ...bricks]
 
         new InputHandler(this.paddle);
     }
