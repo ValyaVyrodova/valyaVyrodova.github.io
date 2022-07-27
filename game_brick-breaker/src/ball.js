@@ -7,8 +7,8 @@ class Ball {
 
         this.game = game;
 
-        this.speed = { x: 4, y: 4 };
-        this.position = { x: 10, y: 10 };
+        this.speed = { x: 4, y: -2 };
+        this.position = { x: 10, y: 400 };
         this.size = 40;
 
     }
