@@ -4,6 +4,7 @@ const GAMESTATE = {
     MENU: 2,
     GAMEOVER: 3,
     NEWLEVEL: 4,
+    FINISH: 5
 }
 
 class Game {
@@ -11,19 +12,21 @@ class Game {
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
         this.gameState = GAMESTATE.MENU;
+        this.gameFinish = GAMESTATE.FINISH;
         this.ball = new Ball(this);
         this.paddle = new Paddle(this);
         this.gameObjects = [];
         this.lives = 3;
         this.bricks = [];
-        this.levels = [level1, level2];
+        this.levels = [level1];
         this.currentLevel = 0;
         new InputHandler(this.paddle, this);
     }
 
     start() {
         if (this.gameState !== GAMESTATE.MENU &&
-            this.gameState !== GAMESTATE.NEWLEVEL)
+            this.gameState !== GAMESTATE.NEWLEVEL &&
+            this.gameState !== GAMESTATE.FINISH)
             return;
 
         this.bricks = buildLevel(this, this.levels[this.currentLevel]);
@@ -36,17 +39,21 @@ class Game {
     update(deltaTime) {
         if (this.lives === 0) this.gameState = GAMESTATE.GAMEOVER;
 
-
         if (
             this.gameState === GAMESTATE.PAUSED ||
             this.gameState === GAMESTATE.MENU ||
-            this.gameState === GAMESTATE.GAMEOVER)
+            this.gameState === GAMESTATE.GAMEOVER ||
+            this.gameState === GAMESTATE.FINISH)
             return;
 
         if (this.bricks.length === 0) {
             this.currentLevel++;
-            this.gameState = GAMESTATE.NEWLEVEL;
-            this.start();
+            if (this.currentLevel === this.levels.length) {
+                this.gameState = GAMESTATE.FINISH;
+            } else {
+                this.gameState = GAMESTATE.NEWLEVEL;
+                this.start();
+            }
 
         }
 
@@ -90,6 +97,17 @@ class Game {
             ctx.fillStyle = 'rgb(255, 255, 255)';
             ctx.textAlign = 'center';
             ctx.fillText('GAME OVER', this.gameWidth / 2, this.gameHeight / 2)
+        };
+
+        if (this.gameState === GAMESTATE.FINISH) {
+            ctx.rect(0, 0, this.gameWidth, this.gameHeight);
+            ctx.fillStyle = 'rgba(208, 95, 255, 1)';
+            ctx.fill();
+
+            ctx.font = '60px Arial';
+            ctx.fillStyle = 'rgb(255, 255, 255)';
+            ctx.textAlign = 'center';
+            ctx.fillText('YOU WIN', this.gameWidth / 2, this.gameHeight / 2)
         };
 
     }
