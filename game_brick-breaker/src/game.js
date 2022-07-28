@@ -9,11 +9,11 @@ class Game {
     constructor(gameWidth, gameHeight) {
         this.gameWidth = gameWidth;
         this.gameHeight = gameHeight;
-
         this.gameState = GAMESTATE.MENU;
         this.ball = new Ball(this);
         this.paddle = new Paddle(this);
         this.gameObjects = [];
+        this.lives = 3;
         new InputHandler(this.paddle, this);
     }
 
@@ -27,9 +27,13 @@ class Game {
     }
 
     update(deltaTime) {
+        if(this.lives === 0) this.gameState = GAMESTATE.GAMEOVER;
+
+
         if (
             this.gameState === GAMESTATE.PAUSED ||
-            this.gameState === GAMESTATE.MENU)
+            this.gameState === GAMESTATE.MENU ||
+            this.gameState === GAMESTATE.GAMEOVER )
             return;
 
         this.gameObjects.forEach(object => object.update(deltaTime));
@@ -60,7 +64,19 @@ class Game {
             ctx.fillStyle = 'rgb(255, 255, 255)';
             ctx.textAlign = 'center';
             ctx.fillText('Press SPACEBAR To Start', this.gameWidth / 2, this.gameHeight / 2)
-        }
+        };
+
+        if (this.gameState === GAMESTATE.GAMEOVER) {
+            ctx.rect(0, 0, this.gameWidth, this.gameHeight);
+            ctx.fillStyle = 'rgba(208, 95, 255, 1)';
+            ctx.fill();
+
+            ctx.font = '60px Arial';
+            ctx.fillStyle = 'rgb(255, 255, 255)';
+            ctx.textAlign = 'center';
+            ctx.fillText('GAME OVER', this.gameWidth / 2, this.gameHeight / 2)
+        };
+
     }
 
     togglePause() {
