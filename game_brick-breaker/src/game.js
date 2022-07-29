@@ -18,7 +18,7 @@ class Game {
         this.gameObjects = [];
         this.lives = 3;
         this.bricks = [];
-        this.levels = [level1];
+        this.levels = [level1, level2, level3];
         this.currentLevel = 0;
         new InputHandler(this.paddle, this);
     }
