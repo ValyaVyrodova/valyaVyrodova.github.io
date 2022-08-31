@@ -17,52 +17,53 @@
 
 <body>
     <div class="container">
-        <div class="about-me__container">
-            <div class="menu__container">
-                <div class="menu__logo">
-                    <img src="./img/logo.png" alt="logo" />
-                </div>
-                <div class="menu__links">
-                    <!-- links -->
-                    <ul>
-                        <li>
-                            <a href="index.html">About me</a>
-                        </li>
-                        <li>
-                            <a href="projects.html">My demo-projects</a>
-                        </li>
-                        <li>
-                            <a href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="menu__social">
-                    <!-- social media -->
-                    <ul>
-                        <li>
-                            <a href="https://www.instagram.com/vyrodova.v/">
-                                <img class="icons" src="./img/icons/instagram.png">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://t.me/ValyaVyrodova">
-                                <img class="icons" src="./img/icons/telegram.png">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/valentyna-vyrodova-20b300222/">
-                                <img class="icons" src="./img/icons/linkedin.png">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+
+        <div class="menu__container">
+            <div class="menu__logo">
+                <img src="./img/logo_black.png" width="220" height="80" alt="logo" />
             </div>
+            <div class="menu__links">
+                <!-- links -->
+                <ul>
+                    <li>
+                        <a href="#pet-project">My demo-projects</a>
+                    </li>
+                    <li>
+                        <a href="index.html">About me</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu__social">
+                <!-- social media -->
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/vyrodova.v/">
+                            <img class="icons" src="./img/icons/instagram.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/ValyaVyrodova">
+                            <img class="icons" src="./img/icons/telegram.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/valentyna-vyrodova-20b300222/">
+                            <img class="icons" src="./img/icons/linkedin.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-me__container">
         </div>
 
         <div class="main">
-            <h1>Main pet projects</h1>
+            <h1 id="pet-project">Main pet projects</h1>
             <h5>Click on the card to see a demo</h5>
-            <div>
+            <div class="circle">
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col">
                         <div class="card h-100" onclick="window.open('./game_brick-breaker/index.html')">
@@ -70,6 +71,15 @@
                             <div class="card-body">
                                 <h5 class="card-title">Canvas: game project brick-breaker</h5>
                                 <p class="card-text">You can play the game.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card h-100" onclick="window.open('./canvas_api/canvas-resize/index.html')">
+                            <img src="./img/canvas-1.png" class="card-img-top" alt="canvas">
+                            <div class="card-body">
+                                <h5 class="card-title">Canvas: play with circles</h5>
+                                <p class="card-text">Relax by changing the circles with mouse.</p>
                             </div>
                         </div>
                     </div>
@@ -160,12 +170,34 @@
             </div>
         </div>
         <div class="CV">There will be CV</div>
-        <div class="footer">There will be footer </div>
+        <div class="footer">
+            <div class="menu__social-footer">
+                <!-- social media -->
+                <ul>
+                    <li>
+                        <a href="https://www.instagram.com/vyrodova.v/">
+                            <img class="icons" src="./img/icons/instagram.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/ValyaVyrodova">
+                            <img class="icons" src="./img/icons/telegram.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/valentyna-vyrodova-20b300222/">
+                            <img class="icons" src="./img/icons/linkedin.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="copy">
+                &copy;Vyrodova Valentyna 2022
+            </div>
+        </div>
     </div>
-    <canvas></canvas>
     <!-- javascript -->
     <script src="app.js"></script>
-    <script src="./canvas.js"></script>
 </body>
 
 </html>
