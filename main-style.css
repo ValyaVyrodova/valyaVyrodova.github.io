@@ -42,7 +42,8 @@ Global Styles
     box-sizing: border-box;
 }
 
-ul, li {
+ul,
+li {
     list-style-type: none;
 }
 
@@ -112,7 +113,9 @@ h4 {
     justify-content: space-between;
     align-items: center;
     background-color: rgba(65, 109, 143, 0.2);
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
+    -moz-border-radius: 0px 0px 10px 10px;
+    -webkit-border-radius: 0px 0px 10px 10px;
 }
 
 .menu__links > ul {
@@ -152,11 +155,13 @@ h4 {
     justify-content: space-around;
     margin: 30px 0 0;
     background-color: rgba(65, 109, 143, 0.2);
-    border-radius: 10px;
     padding: 15px 0;
+    border-radius: 10px 10px 0px 0px;
+    -moz-border-radius: 10px 10px 0px 0px;
+    -webkit-border-radius: 10px 10px 0px 0px;
 }
 
-.menu__social-footer > ul{
+.menu__social-footer > ul {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -197,10 +202,8 @@ h4 {
     }
 }
 @media screen and (min-width: 768px) {
-    
 }
 @media screen and (min-width: 992px) {
-
     .circle {
         display: flex;
         flex-direction: column;
