@@ -17,7 +17,7 @@ let colors = [
     '#F3C301'
 ]
 
-const gravity = 1;
+const gravity = 0.8;
 const friction = 0.8;
 
 addEventListener('mousemove',
@@ -29,7 +29,6 @@ addEventListener('mousemove',
 addEventListener('resize', function() {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
-
     init();
 });
 
@@ -54,18 +53,22 @@ function Ball(x, y, dx, dy, radius, color) {
     this.color = color;
 
     this.update = function() {
-        if (this.y + this.radius + this.dy >= canvas.height && this.dy >= -gravity) {
-            this.dy = -this.dy * friction;
+        if (this.y + this.radius + this.dy > canvas.height) {
+            this.dy = -this.dy;
+            this.dy = this.dy * friction;
+            this.dx = this.dx * friction;
         } else {
             this.dy += gravity;
         }
 
-        if (this.x + this.radius + this.dx > canvas.width ||
+        if (this.x + this.radius > canvas.width ||
             this.x - this.radius <= 0) {
-            this.dx = -this.dx;
+            this.dx = -this.dx * friction;
         }
+
         this.x += this.dx;
         this.y += this.dy;
+        
         this.draw();
     }
 
@@ -84,7 +87,7 @@ let ballArray = [];
 
 function init() {
     ballArray = [];
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 200; i++) {
         let radius = randomIntFromRange(8, 50);
         let x = randomIntFromRange(radius, canvas.width - radius);
         let y = randomIntFromRange(0, canvas.height - radius);
