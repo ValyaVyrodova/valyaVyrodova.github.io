@@ -5,4 +5,5 @@ canvas {
 body {
     margin: auto;
     background-color: bisque;
+    overflow: hidden;
 }
