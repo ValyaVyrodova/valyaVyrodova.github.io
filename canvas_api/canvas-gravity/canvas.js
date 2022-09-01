@@ -17,11 +17,14 @@ let colors = [
     '#F3C301'
 ]
 
-addEventListener('mousemove', 
-function(event) {
-    mouse.x = event.clientX;
-    mouse.y = event.clientY;
-}); 
+const gravity = 1;
+const friction = 0.8;
+
+addEventListener('mousemove',
+    function(event) {
+        mouse.x = event.clientX;
+        mouse.y = event.clientY;
+    });
 
 addEventListener('resize', function() {
     canvas.width = innerWidth;
@@ -30,21 +33,39 @@ addEventListener('resize', function() {
     init();
 });
 
+addEventListener('click', function() {
+    init();
+})
+
 function randomIntFromRange(min, max) {
-    return Math.floor(Math.random() * (max-min + 1) + min)
+    return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
 function randomColor(colors) {
     return colors[Math.floor(Math.random() * colors.length)];
 }
 
-function Ball(x, y, radius, color) {
+function Ball(x, y, dx, dy, radius, color) {
     this.x = x;
     this.y = y;
+    this.dx = dx
+    this.dy = dy;
     this.radius = radius;
     this.color = color;
 
     this.update = function() {
+        if (this.y + this.radius + this.dy >= canvas.height && this.dy >= -gravity) {
+            this.dy = -this.dy * friction;
+        } else {
+            this.dy += gravity;
+        }
+
+        if (this.x + this.radius + this.dx > canvas.width ||
+            this.x - this.radius <= 0) {
+            this.dx = -this.dx;
+        }
+        this.x += this.dx;
+        this.y += this.dy;
         this.draw();
     }
 
@@ -53,14 +74,27 @@ function Ball(x, y, radius, color) {
         c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
         c.fillStyle = this.color;
         c.fill();
+        c.stroke();
         c.closePath();
     };
 }
 
 let bal;
+let ballArray = [];
 
 function init() {
-    ball = new Ball(canvas.width/2, canvas.height/2, 30, 'red');
+    ballArray = [];
+    for (let i = 0; i < 150; i++) {
+        let radius = randomIntFromRange(8, 50);
+        let x = randomIntFromRange(radius, canvas.width - radius);
+        let y = randomIntFromRange(0, canvas.height - radius);
+        let dx = randomIntFromRange(-2, 2);
+        let dy = randomIntFromRange(-2, 2)
+        let color = randomColor(colors);
+
+        ballArray.push(new Ball(x, y, dx, dy, radius, color))
+    }
+    console.log(ballArray)
 
 }
 
@@ -68,11 +102,11 @@ function animate() {
     requestAnimationFrame(animate);
 
     c.clearRect(0, 0, canvas.width, canvas.height);
-    c.fillText("HTML CANVAS BOILERPLATE", mouse.x, mouse.y);
-    ball.update()
+    c.fillText("Click to restart", mouse.x, mouse.y);
+    for (let i = 0; i < ballArray.length; i++) {
+        ballArray[i].update();
+    }
 }
 
 init()
 animate()
-
-
