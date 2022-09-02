@@ -65,10 +65,18 @@ window.addEventListener('mousemove',
     }
 );
 
-window.addEventListener('touchend', function(e) {
-    mouse.x = e.touches[0].screenX;
-    mouse.y = e.touches[0].screenY
+window.addEventListener('touchmove', e => {
+    [...e.changedTouches].forEach(touch => {
+        mouse.x = touch.pageX;
+        mouse.y = touch.pageY;
+    })
 })
+
+// window.addEventListener('touchend', e=> {
+//     [...e.changedTouches].forEach(touch => {
+//         removeEventListener()
+//     })
+// })
 
 window.addEventListener('resize', function() {
     canvas.width = window.innerWidth;
