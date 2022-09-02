@@ -26,6 +26,10 @@ addEventListener('mousemove',
         mouse.y = event.clientY;
     });
 
+addEventListener('touchend', function() {
+    init();
+})
+
 addEventListener('resize', function() {
     canvas.width = innerWidth;
     canvas.height = innerHeight;
@@ -68,7 +72,7 @@ function Ball(x, y, dx, dy, radius, color) {
 
         this.x += this.dx;
         this.y += this.dy;
-        
+
         this.draw();
     }
 
