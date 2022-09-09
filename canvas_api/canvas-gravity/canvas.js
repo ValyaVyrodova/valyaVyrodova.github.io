@@ -17,7 +17,7 @@ let colors = [
     '#F3C301'
 ]
 
-const gravity = 0.5;
+const gravity = 0.6;
 const friction = 0.8;
 
 addEventListener('mousemove',
